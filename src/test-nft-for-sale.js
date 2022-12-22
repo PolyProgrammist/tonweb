@@ -8,8 +8,9 @@ async function myfuncion() {
 
     const address = 'EQBIe9b8zlLeQi0sjqEPZZgvNMi_QxTC7FPXpj1sAkjBw2sf';
 
-    // const nftItemAddress = new TonWeb.utils.Address('EQBIe9b8zlLeQi0sjqEPZZgvNMi_QxTC7FPXpj1sAkjBw2sf');
-    // const nftItem = new NftSale(tonweb.provider, {address: nftItemAddress});
+    // According to contract: https://tonscan.org/address/EQBIe9b8zlLeQi0sjqEPZZgvNMi_QxTC7FPXpj1sAkjBw2sf#source
+    // Code for get_sale_data handling: https://github.com/getgems-io/nft-contracts/blob/main/packages/contracts/nft-fixprice-sale-v2/NftFixpriceSaleV2Local.ts
+
     const result = await tonweb.provider.call2(address, 'get_sale_data');
     const nft_address = parseAddress(result[4]);
     const full_price = result[6];
